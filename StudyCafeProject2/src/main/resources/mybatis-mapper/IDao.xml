@@ -7,7 +7,7 @@
 <mapper namespace="com.studycafe.prac.dao.TodayTicketDao">
 
 	<insert id="regist">
-		INSERT INTO studycafe.scseatTBL(seatNO, userID, ticketNAME, selectedDATE, selectedTIME)
+		INSERT INTO scseatTBL(seatNo, userId, ticketName, selectedDate, selectedTime)
 		 VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5}) 
 	</insert>
 

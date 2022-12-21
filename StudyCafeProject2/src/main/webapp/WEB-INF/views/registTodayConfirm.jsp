@@ -32,7 +32,7 @@
 							<table border="0" cellspacing="0" cellpadding="10">
 									<tr>
 										<td colspan="2" align="center" class="content_text01">
-										이용할 좌석 확인 
+										좌석&이용시간 확인 
 										</td>
 									</tr>
 									<tr>

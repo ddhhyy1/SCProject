@@ -73,8 +73,9 @@
     <!--      달력 추가 js 끝       -->
 
 </script>
+
+	<!-- 테이블 ROW 클릭시 값 가져오는 JS -->
 <script>
-    // 테이블의 Row 클릭시 값 가져오기
     $("#example-table-1 tr").click(function(){     
         var str = ""
         var tdArr = new Array();    // 배열 선언
@@ -108,6 +109,7 @@
         $("#ex1_Result1").html(" * 클릭한 Row의 모든 데이터 = " + tr.text());        
         $("#ex1_Result2").html(str);
     });    
+	<!-- 테이블 ROW 클릭시 값 가져오는 JS 끝-->
 </script>
 <meta charset="UTF-8">
 <title>당일권 사용&예약등록</title>
@@ -115,7 +117,7 @@
 <body>
 <%@ include file="include/header.jsp" %>
 	<center>
-	<form action="registToday" method="post">
+	<form action="registToday">
 	<table width="65%" border="0" cellspacing="0" cellpadding="20">
 		<tr>
 			<td class="titlebox">
@@ -130,21 +132,6 @@
 		</tr>
 		<tr>
 			<td class="titlebox">
-				<span class="title02" name="ticketName">이용시간:
-  					<select name="language" >
-   						 <option value="none" name="usingTIME">=== 선택 ===</option>
-   						 <option value="one" selected>1시간</option>
-    					 <option value="two">2시간</option>
-    					 <option value="four">4시간</option>
-    					 <option value="six">6시간</option>
-    					 <option value="eight">8시간</option>
- 					 </select>
-				</span>
-			</td>
-		
-		</tr>
-		<tr>
-			<td class="titlebox">
 				<span class="title02">날짜지정:
 				<input type="text" id="pickDate" name="selectedDate">
 				</span>
@@ -153,24 +140,15 @@
 		<tr>
 			<td class="titlebox">
 				<span class="title02">좌석지정:
-  					<select name="language" >
-   						 <option value="none" name="seatNO">=== 선택 ===</option>
+  					<select name="seatNo1" >
+   						 <option value="none" name="seatNo2">=== 선택 ===</option>
    						 <c:forEach begin="1" end="25" step="1" var="n">
-    					 <option value="korean" name="selectTime">${n}</option>
+    					 <option name="selectTime">${n}</option>
     					 </c:forEach>
  					 </select>
 				</span>
 			</td>
 		
-		</tr>
-		<tr>
-			<td class="titlebox">
-			
-				<span class="title02">선택한 시간:
-					<input type="text" name="selectedTime">
-				</div>
-				</span>
-			</td>
 		</tr>
 		<tr>
 			<td>
@@ -199,17 +177,43 @@
 										<td class="skillbox" >사용&예약 가능</td>
 									</tr>
 							</c:forEach>
-									<tr>
+									
+							</tbody>
+				</table>
+						<tr>
+							<td class="titlebox">
+								<span class="title02" name="ticketName2">이용시간:
+  									<select name="ticketName1" >
+   						 				<option value="none" name="usingTIME">=== 선택 ===</option>
+   						 				<option value="1" selected>1시간</option>
+    					 				<option value="2">2시간</option>
+    									<option value="4">4시간</option>
+    								    <option value="6">6시간</option>
+    					 				<option value="8">8시간</option>
+ 					 				</select>
+								</span>
+							</td>
+							</tr>
+							<tr>
+								<td class="titlebox">
+									<span class="title02">시작시간 지정:
+										<select name="selectedTime" >
+   						 				<option value="none" name="startTIME">=== 선택 ===</option>
+   						 					<c:forEach begin="8" end="23" step="1" var="t">
+    					 						<option name="selectTime">${t}:00</option>
+    									 	</c:forEach>
+ 					 				</select>
+										
+									</span>
+									</td>
+							</tr>
+							<tr>
 										<td colspan="3">
-											<input class="button_type01" type="button" value="바로시작" onclick="script:window.location='registTodayConfirm'">&nbsp;&nbsp;
+											<input class="button_type01" type="submit" value="바로시작" >&nbsp;&nbsp;
 											<input class="button_type01" type="button" value="예약하기" onclick="script:window.location='QuestionList'">
 											<input class="button_type01" type="button" value="뒤로" onclick="window.history.back() ">
 										</td>
 									</tr>
-							</tbody>
-				</table>
-						<div class="col-lg-12" id="ex1_Result1" ></div> 
-						<div class="col-lg-12" id="ex1_Result2" ></div> 
 				</div>
 				</center>			
 			</td>

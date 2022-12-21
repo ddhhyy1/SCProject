@@ -51,16 +51,16 @@ public class HomeController {
 		
 		TodayTicketDao dao = sqlSession.getMapper(TodayTicketDao.class);
 		
-		String seatNo = request.getParameter("seatNo");
+		int seatNo1 = Integer.parseInt(request.getParameter("seatNo1").toString());
 		String userId = request.getParameter("userId");
-		String ticketName = request.getParameter("ticketName");
+		String ticketName1 = request.getParameter("ticketName1");
 		String selectedDate = request.getParameter("selectedDate");
 		String selectedTime = request.getParameter("selectedTime");
 		
-		dao.regist(seatNo, userId, ticketName, selectedDate, selectedTime);
+		dao.regist(seatNo1, userId, ticketName1, selectedDate, selectedTime);
 		
 		
-		return "registTodayConfirm";
+		return "redirect:registTodayConfirm";
 	}	
 	
 	
